@@ -1,0 +1,22 @@
+{
+	"manifest_version": 3,
+	"name": "Anniversary Countdown",
+	"version": "1.0",
+	"description": "Countdown to our 5th wedding anniversary.",
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "icon16.png",
+			"48": "icon48.png",
+			"128": "icon128.png"
+		}
+	},
+	"permissions": ["activeTab"],
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"css": ["overlay.css"],
+			"js": ["overlay.js"]
+		}
+	]
+}
