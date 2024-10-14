@@ -11,6 +11,10 @@ function updateClock() {
     // Tính thời gian còn lại
     const timeDiff = targetDate - now;
 
+    // Tính số ngày đã ở cùng nhau
+    const startDate = new Date('2019-12-31');
+    const daysTogether = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+
     if (timeDiff > 0) {
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -22,10 +26,12 @@ function updateClock() {
 
         // Thông điệp kỷ niệm
         document.getElementById('message').textContent = `Only ${days} days left until our 5th wedding anniversary.`;
+        document.getElementById('together').innerText = `We have been together for ${daysTogether} days.`;
     } else {
         // Nếu đã đến ngày kỷ niệm
         document.getElementById('countdown').textContent = "Today is our 5th wedding anniversary!";
         document.getElementById('message').textContent = "Happy 5th anniversary!";
+        document.getElementById('together').innerText = `We have been together for ${daysTogether} days.`;
     }
 }
 
